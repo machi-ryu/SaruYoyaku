@@ -1,4 +1,6 @@
 class SarusController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @sarus = Saru.all
   end
