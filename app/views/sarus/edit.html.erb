@@ -1,0 +1,19 @@
+<h1>Sarus#edit</h1>
+<p>Find me in app/views/sarus/edit.html.erb</p>
+
+<%= form_for(@saru) do |f| %>
+
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+
+    <%= f.label :stime %>
+    <%= f.datetime_select :stime %>
+
+    <%= f.label :etime %>
+    <%= f.datetime_select :etime %>
+
+    <%= f.label :menu %>
+    <%= f.text_field :menu %>
+
+    <%= f.submit "Saru登録", class:"btn btn-primary" %>
+<% end %>

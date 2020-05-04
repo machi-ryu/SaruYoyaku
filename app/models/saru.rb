@@ -1,0 +1,2 @@
+class Saru < ApplicationRecord
+end
