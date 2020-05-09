@@ -6,6 +6,13 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
 gem 'devise'
+gem 'jquery-rails' 
+
+gem 'bootstrap'
+gem 'font-awesome-rails'
+gem 'momentjs-rails'
+gem 'bootstrap4-datetime-picker-rails'
+gem 'bootstrap-sass'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

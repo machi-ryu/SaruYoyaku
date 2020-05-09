@@ -2,7 +2,8 @@ class SarusController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @sarus = Saru.all
+    @saru = Saru.new
+    @sarus = Saru.all.order(:stime)
   end
 
   def show
@@ -33,6 +34,15 @@ class SarusController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def search
+    #search_date = Datetime.new(params[:stime])
+    #date = params[:saru][:stime].to_date
+    #date = Datetime.parse(params[:stime])
+    @saru = Saru.new(saru_params)
+    search_date = @saru.stime
+    @sarus = Saru.where(stime: search_date.in_time_zone.all_day)
   end
 
   private

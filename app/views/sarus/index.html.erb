@@ -3,11 +3,31 @@
 
 <%= link_to "Saru登録", new_saru_path %>
 
-<% @sarus.each do |saru| %>
-    <div class="saru">
-        <%= link_to saru.title, saru %>
-        <%= saru.stime %>
-        <%= saru.etime %>
-        <%= saru.menu %>
+<div class="container">
+    <div class="search">
+        <%= form_for(@saru, url: {action: "search"}, remote: true ) do |f| %>
+        <div class="form-group">
+            <div class="input-group date datetimepicker" date-target-input="nearest">
+                <%= f.label :stime %>
+                <%= f.text_field :stime, id: "stime", autocomplete: "off",
+                    class:"form-control datetimepicker-input",  data: {target: '#stime'} %>
+                <div class="input-group-append" data-target="#stime" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+    
+            <%= f.label :place_id %>
+            <%= f.text_field :place_id %>
+    
+            <%= f.label :level %>
+            <%= f.select :level, [["ふつう", 3], ["かなり上手", 4], ["セミプロ", 5]], autofocus: true, autocomplete: "level" %>
+    
+            <%= f.submit "検索" %>
+        <% end %>
     </div>
-<% end %>
+</div>
+
+<div class="sarus">
+    <%= render 'sarus', sarus: @sarus %>
+</div>

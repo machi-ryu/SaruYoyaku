@@ -7,10 +7,14 @@
     <%= f.text_field :title %>
 
     <%= f.label :stime %>
-    <%= f.datetime_select :stime %>
+    <%= f.datetime_select :stime, {
+        discard_year: true,
+        minute_step: 15 } %>
 
     <%= f.label :etime %>
-    <%= f.datetime_select :etime %>
+    <%= f.datetime_select :etime, {
+        discard_year: true,
+        minute_step: 15 } %>
 
     <%= f.label :menu %>
     <%= f.text_field :menu %>

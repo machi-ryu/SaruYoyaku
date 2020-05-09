@@ -11,6 +11,20 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery
 //= require activestorage
 //= require turbolinks
+//= require bootstrap
+//= require bootstrap-sprockets
+//= require popper
+//= require moment
+//= require moment/ja.js
+//= require tempusdominus-bootstrap-4.js
 //= require_tree .
+
+
+$(function(){
+    $('.datetimepicker').datetimepicker({
+        format: 'YYYY-MM-DD HH:SS',
+    });
+});

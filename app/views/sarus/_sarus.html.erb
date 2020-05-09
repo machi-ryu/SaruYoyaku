@@ -1,0 +1,9 @@
+
+    <% sarus.each do |saru| %>
+        <div class="saru">
+            <%= link_to saru.title, saru %>
+            <%= saru.stime.strftime("%m/%d %H:%M〜") %>
+            <%= saru.etime.strftime("%H:%M") %>
+            <%= saru.menu %>
+        </div>
+    <% end %>

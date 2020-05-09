@@ -1,11 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'sarus/index'
-  get 'sarus/show'
-  get 'sarus/new'
-  get 'sarus/create'
-  get 'sarus/edit'
-  get 'sarus/update'
   devise_for :users
   root 'users#mypage'
   resources :users do
@@ -14,6 +8,10 @@ Rails.application.routes.draw do
     end
   end
   resources :places
-  resources :sarus
+  resources :sarus do
+    collection do
+      post :search
+    end
+  end
 
 end
