@@ -1,4 +1,14 @@
 <h1>マイページ</h1>
-<%= @user.name %>
-<%= @user.email %>
-
+<%= current_user.name %>
+<%= current_user.email %>
+<div class="my-sarus">
+    <% @users.each do |user| %>
+        <%= link_to user.title, user %>
+        <%= user.place.name %>
+        <%= user.stime.strftime("%m/%d %H:%M〜") %>
+        <%= user.etime.strftime("%H:%M") %>
+        <%= user.menu %>
+        <%= user.reserve.count %> / 
+        <%= user.max %>人
+    <% end %>
+</div>

@@ -2,9 +2,21 @@
 <p>Find me in app/views/sarus/show.html.erb</p>
 
 <%= @saru.title %>
+<%= @saru.place.name %>
 <%= @saru.stime %>
 <%= @saru.etime %>
 <%= @saru.menu %>
+<%= @saru.reserve.count %> / 
+<%= @saru.max %>人
+
+<%= form_for(@reserve) do |f| %>
+    <% if @saru.max != @saru.reserve.count %>
+        <%= f.hidden_field :saru_id, :value => @saru.id %>
+        <%= f.submit "予約" %>
+    <% else %>
+        <%= f.submit "満席" %>
+    <% end %>
+<% end %>
 
 <%= link_to "編集", edit_saru_path %>
 <%= link_to "一覧へ", sarus_path %>

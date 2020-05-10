@@ -13,6 +13,9 @@ gem 'font-awesome-rails'
 gem 'momentjs-rails'
 gem 'bootstrap4-datetime-picker-rails'
 gem 'bootstrap-sass'
+
+gem 'hirb'
+gem 'hirb-unicode'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

@@ -2,8 +2,11 @@
     <% sarus.each do |saru| %>
         <div class="saru">
             <%= link_to saru.title, saru %>
+            <%= saru.place.name %>
             <%= saru.stime.strftime("%m/%d %H:%M〜") %>
             <%= saru.etime.strftime("%H:%M") %>
             <%= saru.menu %>
+            <%= saru.reserve.count %> / 
+            <%= saru.max %>人
         </div>
     <% end %>

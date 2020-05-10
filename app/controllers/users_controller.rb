@@ -5,6 +5,6 @@ class UsersController < ApplicationController
   end
 
   def mypage
-    @user = current_user
+    @users = current_user.sarus
   end
 end

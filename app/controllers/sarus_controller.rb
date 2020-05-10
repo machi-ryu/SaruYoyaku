@@ -8,6 +8,8 @@ class SarusController < ApplicationController
 
   def show
     @saru = Saru.find(params[:id])
+    #@reserve = Reserve.new(saru_id: params[:id])
+    @reserve = Reserve.new
   end
 
   def new
@@ -25,10 +27,12 @@ class SarusController < ApplicationController
 
   def edit
     @saru = Saru.find(params[:id])
+    @places = Place.all
   end
 
   def update
     @saru = Saru.find(params[:id])
+    @places = Place.all
     if @saru.update_attributes(saru_params)
       redirect_to @saru
     else
@@ -47,6 +51,6 @@ class SarusController < ApplicationController
 
   private
     def saru_params
-      params.require(:saru).permit(:title, :stime, :etime, :menu, :level)
+      params.require(:saru).permit(:title, :place_id, :stime, :etime, :menu, :level, :max)
     end
 end

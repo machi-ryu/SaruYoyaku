@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_04_124556) do
+ActiveRecord::Schema.define(version: 2020_05_09_171450) do
 
   create_table "places", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2020_05_04_124556) do
     t.string "detail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "reserves", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "saru_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "saru_id"], name: "index_reserves_on_user_id_and_saru_id", unique: true
   end
 
   create_table "sarus", force: :cascade do |t|
@@ -30,6 +38,7 @@ ActiveRecord::Schema.define(version: 2020_05_04_124556) do
     t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "max"
   end
 
   create_table "users", force: :cascade do |t|
