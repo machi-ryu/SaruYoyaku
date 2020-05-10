@@ -1,12 +1,18 @@
 
     <% sarus.each do |saru| %>
         <div class="saru">
-            <%= link_to saru.title, saru %>
-            <%= saru.place.name %>
             <%= saru.stime.strftime("%m/%d %H:%M〜") %>
             <%= saru.etime.strftime("%H:%M") %>
+            <%= link_to saru.title, saru %>
+            <%= saru.place.name %>
+            <%= saru.level %>
             <%= saru.menu %>
             <%= saru.reserve.count %> / 
             <%= saru.max %>人
+
+            <% if current_user.reserve.find_by(saru_id: saru.id).nil? %>
+            <% else %>
+                <span class="reserve-flg">予約中</span>
+            <% end %>
         </div>
     <% end %>

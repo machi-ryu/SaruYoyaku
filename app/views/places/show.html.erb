@@ -5,5 +5,5 @@
     <%= @place.adress %>
     <%= @place.detail %>
 
-    <%= link_to "編集", edit_place_path %>
+    <%= user_signed_in? ? (link_to "編集", edit_place_path) : nil %>
     <%= link_to "一覧へ", places_path %>

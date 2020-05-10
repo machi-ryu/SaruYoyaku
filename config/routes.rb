@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root 'users#mypage'
+  #root 'users#mypage'
+  root 'sarus#index'
   resources :users do
     collection do
       get :mypage

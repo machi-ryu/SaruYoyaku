@@ -30,6 +30,9 @@
         </div>
     </div>
 
+    <%= f.label :level %>
+    <%= f.select :level, [["ふつう", 3], ["かなり上手", 4], ["セミプロ", 5]], autofocus: true, autocomplete: "level" %>
+
     <%= f.label :menu %>
     <%= f.text_field :menu %>
 

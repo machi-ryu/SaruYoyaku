@@ -12,10 +12,11 @@
 
   <body>
     <header>
-      <%= link_to "マイページ", root_path %>
-      <%= link_to "Saru検索", sarus_path %>
-      <%= link_to "施設一覧", places_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <% if user_signed_in? %>
+        <%= render 'layouts/login_header' %>
+      <% else %>
+        <%= render 'layouts/nologin_header' %>
+      <% end %>
     </header>
     <%= yield %>
   </body>

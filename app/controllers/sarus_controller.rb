@@ -1,9 +1,10 @@
 class SarusController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
 
   def index
     @saru = Saru.new
     @sarus = Saru.all.order(:stime)
+    @places = Place.all
   end
 
   def show
@@ -47,7 +48,16 @@ class SarusController < ApplicationController
     #date = Datetime.parse(params[:stime])
     @saru = Saru.new(saru_params)
     search_date = @saru.stime
-    @sarus = Saru.where(stime: search_date.in_time_zone.all_day)
+
+    @sarus = Saru.all.order(:stime)
+    @sarus = Saru.where(stime: search_date.in_time_zone.all_day) if search_date != nil
+    #if search_date != nil
+    #  @sarus = Saru.where(stime: search_date.in_time_zone.all_day)
+    #else
+    #  @sarus = Saru.all
+    #end
+    @sarus = @sarus.where(level: @saru.level) if @saru.level != 0
+    #@sarus = @sarus.where(place_id: @saru.place_id) 
   end
 
   private

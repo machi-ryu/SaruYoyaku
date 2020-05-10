@@ -5,6 +5,6 @@ class UsersController < ApplicationController
   end
 
   def mypage
-    @users = current_user.sarus
+    @users = current_user.sarus.order(:stime)
   end
 end
