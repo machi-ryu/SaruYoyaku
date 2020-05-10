@@ -14,6 +14,7 @@ class SarusController < ApplicationController
 
   def new
     @saru = Saru.new
+    @places = Place.all
   end
 
   def create

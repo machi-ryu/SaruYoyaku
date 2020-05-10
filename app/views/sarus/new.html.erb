@@ -6,18 +6,35 @@
     <%= f.label :title %>
     <%= f.text_field :title %>
 
-    <%= f.label :stime %>
-    <%= f.datetime_select :stime, {
-        discard_year: true,
-        minute_step: 15 } %>
+    <%= f.label :place_id %>
+    <%= f.collection_select(:place_id, @places, :id, :name ) %>
 
-    <%= f.label :etime %>
-    <%= f.datetime_select :etime, {
-        discard_year: true,
-        minute_step: 15 } %>
+    <div class="form-group">
+        <div class="input-group date datetimepicker" date-target-input="nearest">
+            <%= f.label :stime %>
+            <%= f.text_field :stime, id: "stime", autocomplete: "off",
+                class:"form-control datetimepicker-input",  data: {target: '#stime'} %>
+            <div class="input-group-append" data-target="#stime" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group date datetimepicker" date-target-input="nearest">
+            <%= f.label :etime %>
+            <%= f.text_field :etime, id: "etime", autocomplete: "off",
+                class:"form-control datetimepicker-input",  data: {target: '#etime'} %>
+            <div class="input-group-append" data-target="#etime" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+    </div>
 
     <%= f.label :menu %>
     <%= f.text_field :menu %>
+
+    <%= f.label :max %>
+    <%= f.text_field :max %>
 
     <%= f.submit "Saru登録", class:"btn btn-primary" %>
 <% end %>
