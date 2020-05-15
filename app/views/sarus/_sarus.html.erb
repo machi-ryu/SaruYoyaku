@@ -1,18 +1,38 @@
 
     <% sarus.each do |saru| %>
         <div class="saru">
-            <%= saru.stime.strftime("%m/%d %H:%M〜") %>
-            <%= saru.etime.strftime("%H:%M") %>
-            <%= link_to saru.title, saru %>
-            <%= saru.place.name %>
-            <%= saru.level %>
-            <%= saru.menu %>
-            <%= saru.reserve.count %> / 
-            <%= saru.max %>人
+            <div class="schedule">
+                <div class="date">
+                    <div class="month"><%= saru.stime.strftime("%_m") %>月</div>
+                    <div class="day"><%= saru.stime.strftime("%_d") %></div>
+                    <div class="week"><%= saru.stime.strftime("%a") %></div>
+                </div>
+                <div class="time">
+                    <%= saru.stime.strftime("%H:%M〜") %>
+                    <%= saru.etime.strftime("%H:%M") %>
+                </div>
+            </div>
+            <div class="content">
+                <div class="top">
+                    <%= link_to saru.title, saru %>
+                    <%= saru.place.name %>
+                    <%= saru.level %>
+                </div>
+                <div class="menu">
+                    <%= saru.menu %>
+                </div>
+            </div>
+            <div class="count">
+                <%= saru.reserve.count %> / 
+                <%= saru.max %>人
+            </div>
 
-            <% if current_user.reserve.find_by(saru_id: saru.id).nil? %>
+            <% if user_signed_in? %>
+                <% if current_user.reserve.find_by(saru_id: saru.id).nil? %>
+                <% else %>
+                    <span class="reserve-flg">予約中</span>
+                <% end %>
             <% else %>
-                <span class="reserve-flg">予約中</span>
             <% end %>
         </div>
     <% end %>
