@@ -1,13 +1,15 @@
 <h1>Sarus#show</h1>
 <p>Find me in app/views/sarus/show.html.erb</p>
 
-<%= @saru.title %>
-<%= @saru.place.name %>
-<%= @saru.stime %>
-<%= @saru.etime %>
-<%= @saru.menu %>
-<%= @saru.reserve.count %> / 
-<%= @saru.max %>人
+<div class=""><%= @saru.title %></div>
+<div class=""><%= @saru.place.name %>
+<div class=""><%= @saru.stime %>
+<div class=""><%= @saru.etime %>
+<div class=""><%= @saru.menu %>
+<div class="">
+    <%= @saru.reserve.count %> /
+    <%= @saru.max %>人
+</div>
 
 <% if user_signed_in? %>
     <% if current_user.reserve.find_by(saru_id: @saru.id).nil? %>

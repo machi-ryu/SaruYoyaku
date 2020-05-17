@@ -1,9 +1,13 @@
 <h1>Places#show</h1>
 <p>Find me in app/views/places/show.html.erb</p>
 
-    <%= @place.name %>
-    <%= @place.adress %>
-    <%= @place.detail %>
-
     <%= user_signed_in? ? (link_to "編集", edit_place_path) : nil %>
+       
+
+    <div class="">
+        <div class="name"><%= @place.name %></div>
+        <div class="adress"><%= @place.adress %></div>
+        <div class="detail"><%= @place.detail %></div>
+    </div>
+
     <%= link_to "一覧へ", places_path %>
