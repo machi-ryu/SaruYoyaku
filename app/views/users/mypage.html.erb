@@ -1,16 +1,35 @@
 <h1>マイページ</h1>
-<%= current_user.name %>
-<%= current_user.email %>
-<div class="my-sarus">
-    <% @users.each do |user| %>
-        <div class="my-saru">
-            <%= user.stime.strftime("%m/%d %H:%M〜") %>
-            <%= user.etime.strftime("%H:%M") %>
-            <%= link_to user.title, user %>
-            <%= user.place.name %>
-            <%= user.menu %>
-            <%= user.reserve.count %> / 
-            <%= user.max %>人
-        </div>
-    <% end %>
+<div class="container">
+    <div class="my-sarus">
+        <% @users.each do |user| %>
+            <div class="row index">
+                <div class="col-4">
+                    <div class="schedule">
+                        <div class="date">
+                            <div class="month"><%= user.stime.strftime("%_m") %>月</div>
+                            <div class="day"><%= user.stime.strftime("%_d") %></div>
+                            <div class="week"><%= user.stime.strftime("%a") %></div>
+                        </div>
+                        <div class="time">
+                            <%= user.stime.strftime("%H:%M〜") %>
+                            <%= user.etime.strftime("%H:%M") %>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="title">
+                        <div class="p-title"><%= link_to user.title, user %></div>
+                        <div class="p-name">@<%= user.place.name %></div>
+                    </div>
+                    <div class="menu">
+                        <%= user.menu %>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <%= user.reserve.count %> / 
+                    <%= user.max %>人
+                </div>
+            </div>
+        <% end %>
+    </div>
 </div>

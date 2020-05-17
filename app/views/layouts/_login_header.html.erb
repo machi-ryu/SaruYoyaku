@@ -3,3 +3,4 @@
 <%= link_to "Saru検索", sarus_path %>
 <%= link_to "施設一覧", places_path %>
 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+<div class=header-right><%= current_user.name %>　さん</div>
