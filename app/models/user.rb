@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :reserve
   has_many :sarus, through: :reserve
+  mount_uploader :image, ImageUploader
 end
