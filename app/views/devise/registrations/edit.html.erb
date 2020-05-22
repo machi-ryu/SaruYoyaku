@@ -10,7 +10,8 @@
 
   <div class="field">
     <%= f.label :image %><br />
-    <%= f.file_field :image, autofocus: true, autocomplete: "image" %>
+    <%= f.file_field :image, id: :user_img, autofocus: true, autocomplete: "image" %>
+    <%= image_tag @user.image.to_s, id: :img_prev, class: "image-preview" %>
   </div>
 
   <div class="field">
