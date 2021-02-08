@@ -13,7 +13,7 @@ gem 'font-awesome-rails'
 gem 'momentjs-rails'
 gem 'bootstrap4-datetime-picker-rails'
 gem 'bootstrap-sass'
-gem 'carrierwave', '1.2.2'
+gem 'carrierwave', '1.3.2'
 gem 'carrierwave-ftp', :require => 'carrierwave/storage/ftp/all'
 
 gem 'hirb'
